@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo</title>
+    <style>
+        div {
+            border: solid;
+            min-height: 200px;
+        }
+        input {
+            margin:20px;
+        }
+    </style>
+</head>
+<body>
+    <form action="" id="formulario">
+        <input type="text" id="nombre">
+        <input type="text" id="apellidos">
+        <input type="text" id="ciudad">
+        <input type="submit" value="enviar">
+    </form>
+
+    <script>
+        function ponerColor(evt) {
+            evt.currentTarget.style.backgroundColor = "#ff0200";
+        }
+
+        function quitarColor(evt) {
+            evt.currentTarget.style.backgroundColor = "";
+        }
+
+        function comprobar(evt) {
+            let errores = "";
+            if(document.getElementById('nombre').value.trim() === "") {
+                errores = "El nombre no puede estar vacio\n";
+            }
+            if(document.getElementById('apellidos').value.trim() === "") {
+                errores += "Los apellidos no puede estar vacio\n";
+            }
+            if(document.getElementById('ciudad').value.trim() === "") {
+                errores += "La ciudad no puede estar vacio\n";
+            }
+            if(errores != "") {
+                window.alert(errores);
+                evt.preventDefault(); // Cancelamos el envío del formulario
+            }
+        }
+
+       document.getElementById('nombre').addEventListener("focus", ponerColor);
+       document.getElementById('nombre').addEventListener("blur", quitarColor);
+       document.getElementById('apellidos').addEventListener("focus", ponerColor);
+       document.getElementById('apellidos').addEventListener("blur", quitarColor);
+       document.getElementById('ciudad').addEventListener("focus", ponerColor);
+       document.getElementById('ciudad').addEventListener("blur", quitarColor);
+
+       document.getElementById("formulario").addEventListener("submit", comprobar);
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo</title>
+    <style>
+        div {
+            border: solid;
+            min-height: 200px;
+        }
+        input {
+            margin:20px;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" id="amarillo" value="amarillo">
+    <input type="button" id="rojo" value="rojo">
+    <input type="button" id="verde" value="verde">
+    <input type="button" id="azul" value="azul">
+    <div id="color">
+    </div>
+
+    <script>
+        function ponerAmarillo() {
+            const color = document.getElementById('color');
+            color.style.backgroundColor = "yellow";
+        }
+        function ponerRojo() {
+            const color = document.getElementById('color');
+            color.style.backgroundColor = "red";
+        }
+        function ponerAzul() {
+            const color = document.getElementById('color');
+            color.style.backgroundColor = "blue";
+        }
+        function ponerVerde() {
+            const color = document.getElementById('color');
+            color.style.backgroundColor = "green";
+        }
+
+        function quitarColor() {
+            const color = document.getElementById('color');
+            color.style.backgroundColor = "";
+        }
+      
+        document.getElementById("amarillo").addEventListener("mouseenter", ponerAmarillo);
+        document.getElementById("amarillo").addEventListener("mouseleave", quitarColor);
+        document.getElementById("rojo").addEventListener("mouseenter", ponerRojo);
+        document.getElementById("rojo").addEventListener("mouseleave", quitarColor);
+        document.getElementById("verde").addEventListener("mouseenter", ponerVerde);
+        document.getElementById("verde").addEventListener("mouseleave", quitarColor);
+        document.getElementById("azul").addEventListener("mouseenter", ponerAzul);
+        document.getElementById("azul").addEventListener("mouseleave", quitarColor);
+
+        /*
+        const botones = document.getElementsByTagName('input');
+        //const botones = document.querySelectorAll('input');
+        for (const boton of botones) {
+            boton.addEventListener("mouseleave", quitarColor);
+        }
+        */
+        
+
+
+       
+
+
+    </script>
+</body>
+</html>

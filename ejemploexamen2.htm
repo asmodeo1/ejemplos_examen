@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo</title>
+    <style>
+        div {
+            border: solid;
+            min-height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" id="amarillo" value="amarillo">
+    <input type="button" id="rojo" value="rojo">
+    <input type="button" id="verde" value="verde">
+    <input type="button" id="azul" value="azul">
+    <div id="colores">
+    </div>
+    <input type="button" id="amarillo1" value="amarillo">
+    <input type="button" id="rojo1" value="rojo">
+    <input type="button" id="verde1" value="verde">
+    <input type="button" id="azul1" value="azul">
+    <div id="colores1">
+    </div>
+    <input type="button" id="amarillo2" value="amarillo" data-color="yellow">
+    <input type="button" id="rojo2" value="rojo" data-color="red">
+    <input type="button" id="verde2" value="verde" data-color="green">
+    <input type="button" id="azul2" value="azul" data-color="blue">
+    <div id="colores2">
+    </div>
+
+    <script>
+        function añadirRojo() {
+            const colores = document.getElementById('colores');
+            const p = document.createElement("p");
+            p.textContent = "rojo";
+            p.style.color = "red";
+            colores.appendChild(p);
+        }
+        function añadirAmarillo() {
+            const colores = document.getElementById('colores');
+            const p = document.createElement("p");
+            p.textContent = "amarillo";
+            p.style.color = "yellow";
+            colores.appendChild(p);
+        }
+        function añadirVerde() {
+            const colores = document.getElementById('colores');
+            const p = document.createElement("p");
+            p.textContent = "verde";
+            p.style.color = "green";
+            colores.appendChild(p);
+        }
+        function añadirAzul() {
+            const colores = document.getElementById('colores');
+            const p = document.createElement("p");
+            p.textContent = "azul";
+            p.style.color = "blue";
+            colores.appendChild(p);
+        }
+        
+        function añadirColor(evt) {
+            const colores = document.getElementById('colores1');
+            const p = document.createElement("p");
+            p.textContent = evt.currentTarget.value;
+            //if(evt.currentTarget.value == "rojo") {
+            if(evt.currentTarget == document.getElementById("rojo1")) {
+                p.style.color = "red";
+            } else if(evt.currentTarget == document.getElementById("verde1")) {
+                p.style.color = "green";
+            } else if(evt.currentTarget == document.getElementById("azul1")) {
+                p.style.color = "blue";
+            } else {
+                p.style.color = "yellow";
+            }
+            colores.appendChild(p);
+        }
+
+        function añadirColor2(evt) {
+            const colores = document.getElementById('colores2');
+            const p = document.createElement("p");
+            p.textContent = evt.currentTarget.value;
+            p.style.color = evt.currentTarget.dataset.color;
+            colores.appendChild(p);
+        }
+
+        document.getElementById("amarillo").addEventListener("click", añadirAmarillo);
+        document.getElementById("rojo").addEventListener("click", añadirRojo);
+        document.getElementById("verde").addEventListener("click", añadirVerde);
+        document.getElementById("azul").addEventListener("click", añadirAzul);
+
+        document.getElementById('amarillo1').addEventListener("click", añadirColor);
+        document.getElementById('rojo1').addEventListener("click", añadirColor);
+        document.getElementById('verde1').addEventListener("click", añadirColor);
+        document.getElementById('azul1').addEventListener("click", añadirColor);
+
+        document.getElementById('amarillo2').addEventListener("click", añadirColor2);
+        document.getElementById('rojo2').addEventListener("click", añadirColor2);
+        document.getElementById('verde2').addEventListener("click", añadirColor2);
+        document.getElementById('azul2').addEventListener("click", añadirColor2);
+
+
+    </script>
+</body>
+</html>

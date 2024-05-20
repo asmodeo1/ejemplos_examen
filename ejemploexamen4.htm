@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo</title>
+    <style>
+        #caja {
+            border: solid;
+            min-height: 200px;
+        }
+        #coordenadas {
+            text-align: center;
+            margin: 10px;
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="caja">
+    </div>
+    <div id="coordenadas"></div>
+
+    <script>
+        function mostrarCoordenadas(evt) {
+            const coordenadas = document.getElementById("coordenadas");
+            console.log(evt)
+            coordenadas.textContent = evt.clientX + ", " + evt.clientY;
+        }
+       document.getElementById('caja').addEventListener("mousemove", mostrarCoordenadas);
+
+    </script>
+</body>
+</html>
